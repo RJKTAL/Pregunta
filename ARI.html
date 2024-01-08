@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        #question {
+            color: purple;
+            margin-top: 100px;
+        }
+        #options {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .option {
+            margin: 0 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="question">¿Quieres ser mi novia?</div>
+    <div id="options">
+        <div class="option" onclick="showThanks()">Sí</div>
+        <div class="option" onclick="moveNoBox()">No</div>
+    </div>
+
+    <script>
+        function showThanks() {
+            window.location.href = "gracias.html";
+        }
+
+        function moveNoBox() {
+            var noBox = document.querySelector('.option:nth-child(2)');
+            var randomX = Math.floor(Math.random() * (window.innerWidth - noBox.clientWidth));
+            var randomY = Math.floor(Math.random() * (window.innerHeight - noBox.clientHeight));
+
+            noBox.style.position = 'absolute';
+            noBox.style.left = randomX + 'px';
+            noBox.style.top = randomY + 'px';
+        }
+    </script>
+</body>
+</html>
